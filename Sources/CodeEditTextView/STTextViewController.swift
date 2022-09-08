@@ -188,6 +188,11 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
 //        print(event.keyCode)
     }
 
+    override public func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        return false
+    }
+    
     /// Handles `keyUp` events in the `textView`
     override public func keyUp(with event: NSEvent) {
         keyIsDown = false
