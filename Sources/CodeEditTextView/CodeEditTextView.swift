@@ -43,6 +43,8 @@ public struct CodeEditTextView: NSViewControllerRepresentable {
     @Binding private var lineHeight: Double
 
     public typealias NSViewControllerType = STTextViewController
+    
+    private var controller:NSViewControllerType?
 
     public func makeNSViewController(context: Context) -> NSViewControllerType {
         let controller = NSViewControllerType(
@@ -53,6 +55,7 @@ public struct CodeEditTextView: NSViewControllerRepresentable {
             tabWidth: tabWidth
         )
         controller.lineHeightMultiple = lineHeight
+        self.controller = controller
         return controller
     }
 
@@ -66,8 +69,8 @@ public struct CodeEditTextView: NSViewControllerRepresentable {
         return
     }
     
-    public func letItGo(_ controller: NSViewControllerType, context: Context) -> Bool {
-        controller.resignFirstResponder()
+    public func letItGo() -> Bool {
+        self.controller?.resignFirstResponder()
         return true
     }
 }
