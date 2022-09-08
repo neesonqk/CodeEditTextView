@@ -181,9 +181,9 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
         keyIsDown = true
 
         // handle tab insertation
-        if focusing && event.specialKey == .tab {
-            textView?.insertText(String(repeating: " ", count: tabWidth))
-        }
+        // if focusing && event.specialKey == .tab {
+        //     textView?.insertText(String(repeating: " ", count: tabWidth))
+        // }
 //        print(event.keyCode)
     }
 
