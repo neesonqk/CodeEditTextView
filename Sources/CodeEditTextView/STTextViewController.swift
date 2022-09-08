@@ -181,20 +181,26 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
         keyIsDown = true
 
         // handle tab insertation
-        // if focusing && event.specialKey == .tab {
-        //     textView?.insertText(String(repeating: " ", count: tabWidth))
-        // }
-        print(textView?.resignFirstResponder())
-//        print(event.keyCode)
+        if focusing && event.specialKey == .tab {
+            textView?.insertText(String(repeating: " ", count: tabWidth))
+        }
+        
+//        print("is first responder")
+        // print(event.keyCode)
     }
 
-    override public func resignFirstResponder() -> Bool {
-        super.resignFirstResponder()
-        return false
-    }
+//    override public func resignFirstResponder() -> Bool {
+//        super.resignFirstResponder()
+//        return false
+//    }
     
     /// Handles `keyUp` events in the `textView`
     override public func keyUp(with event: NSEvent) {
         keyIsDown = false
+    }
+    
+    public func letItGo() -> Bool {
+        print("let it go")
+        return ((textView?.resignFirstResponder()) != nil)
     }
 }
