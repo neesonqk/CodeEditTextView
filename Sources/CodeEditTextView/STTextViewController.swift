@@ -17,6 +17,8 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
 
     internal var rulerView: STLineNumberRulerView!
 
+    public var focusing: Bool = false
+    
     /// Binding for the `textView`s string
     public var text: Binding<String>
 
@@ -179,7 +181,7 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
         keyIsDown = true
 
         // handle tab insertation
-        if event.specialKey == .tab {
+        if focusing && event.specialKey == .tab {
             textView?.insertText(String(repeating: " ", count: tabWidth))
         }
 //        print(event.keyCode)
