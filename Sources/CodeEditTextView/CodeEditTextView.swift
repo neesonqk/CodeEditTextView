@@ -55,7 +55,6 @@ public struct CodeEditTextView: NSViewControllerRepresentable {
             tabWidth: tabWidth
         )
         controller.lineHeightMultiple = lineHeight
-        self.controller = controller
         return controller
     }
 
@@ -67,10 +66,5 @@ public struct CodeEditTextView: NSViewControllerRepresentable {
         controller.lineHeightMultiple = lineHeight
         controller.reloadUI()
         return
-    }
-    
-    public func letItGo() -> Bool {
-        self.controller?.resignFirstResponder()
-        return true
     }
 }
