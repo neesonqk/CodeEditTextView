@@ -184,6 +184,7 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
         // if focusing && event.specialKey == .tab {
         //     textView?.insertText(String(repeating: " ", count: tabWidth))
         // }
+        print(textView?.resignFirstResponder())
 //        print(event.keyCode)
     }
 
