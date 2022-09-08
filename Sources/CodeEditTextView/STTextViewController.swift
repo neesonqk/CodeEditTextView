@@ -198,9 +198,4 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
     override public func keyUp(with event: NSEvent) {
         keyIsDown = false
     }
-    
-    public func letItGo() -> Bool {
-        print("let it go")
-        return ((textView?.resignFirstResponder()) != nil)
-    }
 }

@@ -65,4 +65,9 @@ public struct CodeEditTextView: NSViewControllerRepresentable {
         controller.reloadUI()
         return
     }
+    
+    public func letItGo(_ controller: NSViewControllerType, context: Context) -> Bool {
+        controller.resignFirstResponder()
+        return true
+    }
 }
