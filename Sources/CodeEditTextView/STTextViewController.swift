@@ -181,13 +181,9 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
         keyIsDown = true
 
         // handle tab insertation
-        if event.specialKey == .tab {
-            textView?.insertText(String(repeating: " ", count: tabWidth))
-        }
-        
-        if event.specialKey == .f1 {
-            print(textView.resignFirstResponder())
-        }
+//        if event.specialKey == .tab {
+//            textView?.insertText(String(repeating: " ", count: tabWidth))
+//        }
         
 //        print("is first responder")
         // print(event.keyCode)
@@ -197,9 +193,4 @@ public class STTextViewController: NSViewController, STTextViewDelegate {
 //        super.resignFirstResponder()
 //        return false
 //    }
-    
-    /// Handles `keyUp` events in the `textView`
-    override public func keyUp(with event: NSEvent) {
-        keyIsDown = false
-    }
 }

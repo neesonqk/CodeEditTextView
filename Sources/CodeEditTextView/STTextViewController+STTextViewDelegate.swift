@@ -9,6 +9,14 @@ import AppKit
 import STTextView
 
 extension STTextViewController {
+    
+    
+    public override func viewWillAppear() {
+        super.viewWillAppear()
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: doTabKey(event:))
+        
+    }
+    
     public func textDidChange(_ notification: Notification) {
         print("Text did change")
     }
@@ -35,5 +43,18 @@ extension STTextViewController {
         highlight()
         setStandardAttributes()
         self.text.wrappedValue = textView.string
+        
+//        if event.specialKey == .tab {
+//            textView?.insertText(String(repeating: " ", count: tabWidth))
+//        }
+        
+    }
+    
+    private func doTabKey(event: NSEvent) -> NSEvent {
+        if event.specialKey == .tab {
+            textView?.insertText(String(repeating: " ", count: tabWidth))
+        }
+        
+        return event
     }
 }
